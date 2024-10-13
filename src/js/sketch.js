@@ -1,12 +1,17 @@
 // Global Variables ////////////////////////////////////////////////////////////
 
 //UI //////////////////////////
-var bg = 50;
+var bg = 52;
 var tintStartscreen = 0;
 var showQTree = false;
 var buttonQT;
 var showHB = false;
 var buttonHB;
+
+var aBSelection;
+var BPSx = [];
+var BPSy = [];
+
 
 // Hands//////////////////////////
 var handAmount = 3;                       //Current amount of the Hands in the Screens
@@ -89,7 +94,17 @@ function getData() {
 
 // Setup /////////////////////////////////////////////////////////////////////////
 function setup() {
-    
+    const canvas = [
+        640,
+        480
+    ]
+
+    const canvasS = [
+        640*screenFactor,
+        480*screenFactor
+    ]
+
+    createCanvas(canvasS[0], canvasS[1]);
     /* video = createCapture(VIDEO);
 
     video.size(640, 480);
@@ -104,9 +119,42 @@ function setup() {
     buttonQT.position(80, 10);
     buttonQT.mousePressed(changeQT);
 
+    // DrowpDown
+
+    amountBlob = createSelect("Amount")
+    amountBlob.position(10, 50);
+
+    amountBlob.option(0);
+
+    amountBlob.option(1);
+    BPSx.push(createSlider(0, canvas[0],  100, 0));
+    BPSx[0].position(10,80)
+    BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
+    BPSy[0].position(155,80)
+
+    amountBlob.option(2);
+    BPSx.push(createSlider(0, canvas[0], 250, 0));
+    BPSx[1].position(10,100)
+    BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
+    BPSy[1].position(155,100)
+
+    amountBlob.option(3);
+    BPSx.push(createSlider(0, canvas[0], 450, 0));
+    BPSx[2].position(10,120)
+    BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
+    BPSy[2].position(155,120)
+
+    amountBlob.option(4);
+    BPSx.push(createSlider(0, canvas[0], 600, 0));
+    BPSx[3].position(10,140)
+    BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
+    BPSy[3].position(155,140)
+    
+    
+
     //if(!mt){getData();} // if MouseTest
 
-    createCanvas(640*screenFactor, 480*screenFactor);
+    
 
 
     //Creates Handobjects
@@ -150,14 +198,24 @@ async function getData() {
 
 
 //Every second Load new Data
-if(!mt) {setInterval(function () {getData();}, 100);}
+//if(!mt) {setInterval(function () {getData();}, 1);}
 
 
 
 
 // Draw ///////////////////////////////////////////////////////////////////////////
 function draw() {
-   
+    getData();
+    
+
+    data.amount = amountBlob.value()
+
+    for(let i = 0; i < data.amount; i++) {
+        data.xPos[i] = BPSx[i].value()
+        data.yPos[i] = BPSy[i].value()
+    }
+  
+
     //console.log(frameRate());
     background(bg);
     //image(video, 0, 0, 640*screenFactor, 480*screenFactor)

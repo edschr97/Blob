@@ -123,9 +123,9 @@ function Tree(x, y, color, id) {
       this.ceckCol();
     }
 
-    for(var i = 0; i < this.leaves.length; i++) {
-      this.leaves[i].show();
-    }
+    // for(var i = 0; i < this.leaves.length; i++) {
+    //   this.leaves[i].show();
+    // }
     
     
     for(var i = 0; i < this.branches.length; i++) {

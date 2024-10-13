@@ -70,7 +70,7 @@ function preload() {
     img = loadImage('Input/handKi.jpg')
 }
 
-let data = {"amount": 3, "xPos": [150, 255, 290, 200], "yPos": [200, 123, 300, 50]}
+let data = {"amount": 3, "xPos": [150, 255, 290, "yPos": [200, 123, 300]}
 
 function getData() {
   

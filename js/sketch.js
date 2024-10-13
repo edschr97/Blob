@@ -65,10 +65,30 @@ function preload() {
     img = loadImage('Input/handKi.jpg')
 }
 
+let data = {"amount": 3, "xPos": [150, 255, 290, 200], "yPos": [200, 123, 300, 50]}
+function getData() {
+  
+    
+    console.log(data.amount)
+    handAmount = data.amount;
+    
+    if(handAmount > 0) {
+        for(let i = 0; i < data.xPos.length; i++) {
+            posXh[i] = map(data.xPos[i],0 , 640, 0, width, true);
+            posYh[i] = map(data.yPos[i],0 , 480, 0, height, true);;
+        }
+
+        for(let i = 0; i < handAmount; i++) {
+            hands[i].updatePos(posXh[i],posYh[i]);
+        }
+    }
+
+
+}
 
 // Setup /////////////////////////////////////////////////////////////////////////
 function setup() {
-
+    
     /* video = createCapture(VIDEO);
 
     video.size(640, 480);
@@ -83,7 +103,7 @@ function setup() {
     buttonQT.position(80, 10);
     buttonQT.mousePressed(changeQT);
 
-    if(!mt){getData();} // if MouseTest
+    //if(!mt){getData();} // if MouseTest
 
     createCanvas(640*screenFactor, 480*screenFactor);
 
@@ -104,6 +124,8 @@ function setup() {
 
 
 // Update the Handinformation from the JSON File /////////////////////////////////////
+
+/*
 async function getData() {
   
     const response = await fetch('Output/hands.json');
@@ -123,6 +145,8 @@ async function getData() {
 
 
 }
+*/
+
 
 //Every second Load new Data
 if(!mt) {setInterval(function () {getData();}, 100);}

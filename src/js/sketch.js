@@ -144,11 +144,11 @@ function setup() {
     BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
     BPSy[2].position(155,120)
 
-    amountBlob.option(4);
-    BPSx.push(createSlider(0, canvas[0], 600, 0));
-    BPSx[3].position(10,140)
-    BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
-    BPSy[3].position(155,140)
+    // amountBlob.option(4);
+    // BPSx.push(createSlider(0, canvas[0], 600, 0));
+    // BPSx[3].position(10,140)
+    // BPSy.push(createSlider(0, canvas[1], canvas[1]/2, 0));
+    // BPSy[3].position(155,140)
     
     
 

@@ -66,6 +66,7 @@ function preload() {
 }
 
 let data = {"amount": 3, "xPos": [150, 255, 290, 200], "yPos": [200, 123, 300, 50]}
+
 function getData() {
   
     
